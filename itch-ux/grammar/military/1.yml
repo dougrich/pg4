@@ -2,18 +2,24 @@ is: goblin-cave/military/large
 value: 
   size: 3
   type: rocky-cave
-  name: Goblin Guard Checkpoint
-  description: >
+  name: Fortified Guard Position
+  description: |
     Heavy rocks have been dragged to make the entrance to this cave very narrow, with a crude iron portcullis blocking most of the path. Inside, wooden platforms keep the goblins off the ground. Small sheds are built up against the rock walls that goblins can shoot out of.
+
     In the middle of the room is a crude stone tower, around 5ft tall, built around a stalgmite. Goblins seated inside will take pot shots at anyone they can see outside.
+
     In the corner of the room is a large iron cage, in which the bugbear is kept and tormented. Scraps of meat and bone are just out of reach of the creature, although at any sign of trouble the cage will be opened.
   creatures:
   - 1 goblin boss
   - 1 bugbear
   - 4d4 goblins
-  tactics: >
+  tactics: |
     Pairs of goblins are positioned at each entrance and in small sheds along the walls.
+
     When an attacker approaches, goblins at the other gates will rush over to assist. They will take ranged shots for as long as possible through the portcullis.
+
     When a breach occurs, the boss will dispatch his minions to the rest of the tribe to put them on high alert. They will also release the bugbear.
+
     When a breach occurs, pairs will help each other to attack in melee, giving them advantage. They will also try to block more than one attacker entering the cave.
+
     When the boss dies, any remaining goblins will scatter. The bugbear however, will continue to fight.

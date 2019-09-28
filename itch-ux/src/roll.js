@@ -2,6 +2,7 @@ const GrammarGenerator = require('@dougrich/grammar')
 const Graph = require('@dougrich/graph-expand')
 const grammar = require('./grammar.dist')
 const d3force = require('d3-force')
+const marked = require('marked')
 
 const { replace, flatten, clone } = new Graph(Graph.Immutable)
 
@@ -11,7 +12,7 @@ const nodeStyle = {
     content.push(`<circle cx="${p.x}" cy="${p.y}" r="${p.size - 0.5}" fill="white"/>`)
   },
   'exterior': (content, p) => {
-    content.push(`<circle cx="${p.x}" cy="${p.y}" r="${p.size - 0.5}" fill="white"/>`)
+    content.push(`<circle cx="${p.x}" cy="${p.y}" r="${p.size}" fill="white" stroke="black" stroke-width="0.25" stroke-dasharray="1"/>`)
   }
 }
 
@@ -50,7 +51,19 @@ function render(graph) {
 function renderLegend({ nodes }) {
   const legend = new Array(nodes.length)
   for (let i = 0; i < nodes.length; i++) {
-    legend[i] = `<dt>${i + 1} - ${nodes[i].name}</dt><dd>${nodes[i].description}</dd>`
+    legend[i] = `<dt>${i + 1} - ${nodes[i].name}</dt><dd>${marked(nodes[i].description)}`
+    if (nodes[i].creatures) {
+      legend[i] += '<p><b>Creatures</b></p>'
+      legend[i] += `<ul><li>` + nodes[i].creatures.join('</li><li>') + '</li></ul>'
+    }
+    if (nodes[i].treasure) {
+      legend[i] += '<p><b>Treasure</b></p>'
+      legend[i] += `<ul><li>` + nodes[i].treasure.join('</li><li>') + '</li></ul>'
+    }
+    if (nodes[i].tactics) {
+      legend[i] += '<p><b>Tactics</b></p>'
+      legend[i] += `<p>${marked(nodes[i].tactics)}</p>`
+    }
   }
   return `<dl>${legend.join('')}</dl>`
 }
