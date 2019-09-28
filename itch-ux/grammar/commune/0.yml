@@ -1,0 +1,15 @@
+is: goblin-cave/commune
+value: 
+  size: 5
+  type: rocky-cave
+  name: Arena
+  description: >
+    Cages line the walls, host to any number of small woodland creatures that have been captured by the goblins. In the middle of the room is a large pit, surrounded by wooden reinforcement - animals and prisoners are thrown in here to fight each other to the death.
+  creatures:
+  - 1 goblin boss
+  - 2d4 goblins
+  - 1d2 black bears
+  - 1d2 giant spiders
+  - 1 giant hyena
+  tactics: >
+    Typically the goblins will scatter. If surprised, the boss will release the animals before fleeing, hoping the chaos will dissuade any attacker

@@ -1,0 +1,15 @@
+is: goblin-cave/treasury
+value: 
+  size: 2
+  type: rocky-cave
+  name: Treasury
+  description: >
+    Thick iron chests are piled into a central pit along with a small fortune of gold and silver.
+  creatures:
+  - 1 goblin boss
+  treasure:
+  - 2d4 chests of gold bars (each containing 10 gold bars, each bar worth around 50gp)
+  - 4d4 coinpurses of silver coins
+  - 1 barrel of electrum coins (10d10 coins - this will be used in any transactions)
+  tactics: >
+    Typically the goblins will scatter. If surprised, the boss will release the animals before fleeing, hoping the chaos will dissuade any attacker.

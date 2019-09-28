@@ -1,20 +1,28 @@
 const GrammarGenerator = require('@dougrich/grammar')
 const Graph = require('@dougrich/graph-expand')
-const grammar = require('./grammar')
+const grammar = require('./grammar.dist')
 const d3force = require('d3-force')
 
 const { replace, flatten, clone } = new Graph(Graph.Immutable)
+
+const nodeStyle = {
+  'rocky-cave': (content, p) => {
+    content.push(`<circle cx="${p.x}" cy="${p.y}" r="${p.size}" fill="black"/>`)
+    content.push(`<circle cx="${p.x}" cy="${p.y}" r="${p.size - 0.5}" fill="white"/>`)
+  },
+  'exterior': (content, p) => {
+    content.push(`<circle cx="${p.x}" cy="${p.y}" r="${p.size - 0.5}" fill="white"/>`)
+  }
+}
 
 function render(graph) {
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity
   let content = []
   const margin = 3
   for (let c of graph.connections) {
-    if (c.visible) {
-      let start = graph.nodes[c.start]
-      let end = graph.nodes[c.end]
-      content.push(`<line x1="${start.x}" y1="${start.y}" x2="${end.x}" y2="${end.y}" stroke="black" stroke-width="1.5"/>`)
-    }
+    let start = graph.nodes[c.start]
+    let end = graph.nodes[c.end]
+    content.push(`<line x1="${start.x}" y1="${start.y}" x2="${end.x}" y2="${end.y}" stroke="black" stroke-width="1.5"/>`)
   }
   
   for (let ni = 0; ni < graph.nodes.length; ni++) {
@@ -23,17 +31,12 @@ function render(graph) {
     minY = Math.min(minY, p.y - margin - p.size / 2)
     maxX = Math.max(maxX, p.x + margin + p.size / 2)
     maxY = Math.max(maxY, p.y + margin + p.size / 2)
-    if (p.visible) {
-      content.push(`<circle cx="${p.x}" cy="${p.y}" r="${p.size}" fill="black"/>`)
-    }
-    content.push(`<circle cx="${p.x}" cy="${p.y}" r="${p.size - 0.5}" fill="white"/>`)
+    nodeStyle[p.type](content, p)
   }
   for (let c of graph.connections) {
-    if (c.visible) {
-      let start = graph.nodes[c.start]
-      let end = graph.nodes[c.end]
-      content.push(`<line x1="${start.x}" y1="${start.y}" x2="${end.x}" y2="${end.y}" stroke="white" stroke-width="1"/>`)
-    }
+    let start = graph.nodes[c.start]
+    let end = graph.nodes[c.end]
+    content.push(`<line x1="${start.x}" y1="${start.y}" x2="${end.x}" y2="${end.y}" stroke="white" stroke-width="1"/>`)
   }
   
   for (let ni = 0; ni < graph.nodes.length; ni++) {
@@ -53,7 +56,7 @@ function renderLegend({ nodes }) {
 }
 
 module.exports = function roll(cb) {
-
+  console.log(grammar)
   const generator = new GrammarGenerator({
     storage: new GrammarGenerator.MemoryStorage(grammar),
     random: () => Math.random()
@@ -86,13 +89,14 @@ module.exports = function roll(cb) {
       .force('center', d3force.forceCenter(0, 0))
       .force('collision', d3force.forceCollide(({ size }) => size))
       .force('links', d3force
-        .forceLink(graph.connections.map(({ start, end, length }) => ({
+        .forceLink(graph.connections.map(({ start, end, length, strength }) => ({
           source: graph.nodes[start],
           target: graph.nodes[end],
-          length
+          length,
+          strength
         })))
-        .distance(({ length }) => 0)
-        .strength(2))
+        .distance(({ length }) => length)
+        .strength(({ strength }) => strength ))
       .stop()
       .tick(1000)
     const svg = render(graph)

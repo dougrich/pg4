@@ -1,0 +1,17 @@
+is: goblin-cave/military/small
+value: 
+  size: 1.5
+  type: rocky-cave
+  name: Goblin Guard Checkpoint
+  description: >
+    Small wood barricades with crude arrowslits guard the entrance to this chamber. Pieces of plate armor and scavenged metals are haphazardly roped and attached to it to make it difficult to enter.
+    Inside the tiny cavern is a large brass oil lamp surrounded by a pile of numerous small trinkets, stolen from passerby - including 2d6 coin purses, 1d4 pieces of jewellery, and 4d4 individual socks.
+  creatures:
+  - 1 goblin boss
+  - 2d4 goblins
+  tactics: >
+    Typically the goblins will be piled up against the barricade as people approach. The tunnel ahead should include numerous small traps and trinkets to make noise.
+    Until breached, the goblins and goblin boss will launch projectiles through the arrowslits.
+    When an attacker gets close to the wall, the goblin boss will tell one of the goblins to flee and alert further defenses.
+    When an attacker breaches the wall, the goblins will drop what they are doing and attack. Pairs will help each other to attack in melee, giving them advantage.
+    When the boss dies, any remaining goblins will scatter. The bugbear however, will continue to fight.
