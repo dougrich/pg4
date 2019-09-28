@@ -18,7 +18,6 @@ module.exports = {
       filename: 'bundle.zip'
     })
   ],
-  mode: 'production',
   devServer: {
     contentBase: './dist'
   },

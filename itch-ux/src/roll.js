@@ -58,16 +58,16 @@ module.exports = function roll(cb) {
     storage: new GrammarGenerator.MemoryStorage(grammar),
     random: () => Math.random()
   }, {
-    canGenerateDry: s => !!s.graphExpand,
-    generateDry: async ({ graphExpand }, g) => {
-      const graph = clone(graphExpand)
+    canGenerate: s => !!s.graphExpand,
+    generate: async ({ graphExpand }, g) => {
+      let graph = clone(graphExpand)
       let i = 0
       while (i < graph.nodes.length) {
         const node = graph.nodes[i]
         if (node.is) {
           const next = await g.generate(node.is)
           if (next.nodes) {
-            replace(graph, i, next)
+            graph = replace(graph, i, next)
             i--
           } else {
             graph.nodes[i] = next
@@ -79,7 +79,7 @@ module.exports = function roll(cb) {
     }
   })
 
-  generator.generate('stash-cave').then(graph => {
+  generator.generate('cave').then(graph => {
     graph.nodes = JSON.parse(JSON.stringify(graph.nodes))
     d3force.forceSimulation(graph.nodes)
       .force('charge', d3force.forceManyBody())
