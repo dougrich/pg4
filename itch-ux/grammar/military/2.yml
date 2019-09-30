@@ -1,0 +1,26 @@
+is: goblin-cave/military/large
+value: 
+  size: 6
+  type: rocky-cave
+  name: Cavernous Pit
+  description: |
+    The floor in the center of the room seems to drop out, with gravel forming a natural funnel towards a large hole at the bottom. Numerous wooden platforms criss-cross above this, suspended from the roof and walls.
+
+    Stepping onto these platforms they will wobble back and forth, behaving like difficult terrain. Break the combat area into numerous 5ft by 10ft platforms, and assign each a number from 1 to 100. On each missed melee attack by anyone on the platforms, roll the d100 - if a platform's number is rolled, cutting the rope here causes that platform to fall into the gravel below, dealing 1d6 damage to anyone on it unless they make a DC 13 dexterity save to jump to a nearby platform.
+
+    Close inspection of the funnel reveals it to be an Ankheg's den. Anyone that falls into the funnel will instantly be attacked by the ankheg, which uses it's tremorsense to sense them. Climbing out of the funnel requires succeeding on a DC 13 athletics check to overcome the slippery gravel.
+  creatures:
+  - 1 goblin boss
+  - 1 ankheg
+  - 4d4 goblins
+  tactics: |
+    The goblins here are less organized, relying on the difficult terrain and ankheg to protect them. They do stay in pairs.
+    
+    At the first sign of trouble those closest to the exits will attempt to flee, barricading the hallways behind them. Breaking through these makeshift barricades requires succeeding a DC 13 strength check.
+
+    When confronted on a platform, the goblin pairs will attempt to shove creatures off the platform into the funnel below.
+
+    When an attacker approaches, the goblin boss will immediately use an action on his turn to attack the ropes around him.
+
+    When a creature falls into the funnel, the ankheg will leave the protected hole in the middle of the room to attack them, using its acid spray to damage anyone.
+    

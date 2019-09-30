@@ -1,0 +1,15 @@
+is: goblin-cave/military/small
+value: 
+  size: 1
+  type: rocky-cave
+  name: Narrow Crevasse
+  description: |
+    The stone walls here come narrowly close, within a foot or so of each other. The goblins have set up a small impassable barricade on one side, and keep watch, shooting at anyone that tries to enter with crossbows.
+
+    If a creature tries to enter the tunnel, they are effectively restrained with a move speed of 10ft - or 5ft, if they fail a DC 13 DEX check. The crevasse is only 10ft long, however.
+
+    It is impossible to move past another creature in the tunnel.
+  creatures:
+  - 1d4 goblins
+  tactics: |
+    The goblins here take turns keeping watch on the tunnel. At the first sign of trouble, they all rush to the barricade and shoot at whoever is closest.

@@ -1,0 +1,16 @@
+is: goblin-cave/commune
+value: 
+  size: 5
+  type: rocky-cave
+  name: Shrine to Maglubiyet
+  description: |
+    In the middle of the room is a a large battleaxe atop a stone pillar. Each morning a prisoner is sacrified by a priest of Maglubiyet to stain the axe. Around the walls of the room are numerous cages, holding either small woodland animals or captured people (if the Goblins can manage that).
+
+    Arranged at the base of the pillar are numerous small trinkets from various prisoners that have been sacrificed. Many of these are stained with small droplets of blood.
+  creatures:
+  - 1 goblin boss (the priest)
+  - 2d4 goblins
+  tactics: >
+    The goblin boss will organize his followers around him, encouraging them to die for Maglubiyet.
+
+    Goblins will group up to try to grapple intruders while the boss attempts to use the axe to slay them.

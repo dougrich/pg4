@@ -1,0 +1,9 @@
+is: goblin-cave/military/small
+value: 
+  size: 1
+  type: rocky-cave
+  name: Submerged Chamber
+  description: |
+    The ceiling of this room is quite low - only about 3ft. above the ground. Medium or larger creatures find moving through the room to be difficult terrain.
+
+    Complicating matters, the room dips down towards the middle and has collected a lot of stagnant water. Stepping into the putrid waters any wounded creatures should roll a DC 11 Constitution save or become infected with Sewer Plague.

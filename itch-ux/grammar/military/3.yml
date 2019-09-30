@@ -1,0 +1,22 @@
+is: goblin-cave/military/large
+value: 
+  size: 5.5
+  type: rocky-cave
+  name: Magic Circle
+  description: |
+    Dotting the ceiling of this room are numerous globes of light - bioluminescent insects fill each to the brim to the point where the entire room is well lit.
+    
+    Three large stone pillars are placed equidistant from each other around the center of the room, with tracks indicating that they were carried here from somewhere else. The goblin boss is seated in the middle of the room on top of a stack of captured wizard's spellbooks, attempting to learn how to cast magic.
+
+    Each of the pillars glows with a different light and has a different elemental energy - one for fire, cold, and lightning. When casting a spell with any of these types, roll a 1d6 - if it is a 1, then the relevant pillar lights up and redirects the attack towards it instead of it's intended target.
+
+    If a pillar takes more than 10 points of damage, then it erupts into an elemental. Fire turns into a fire elemental, cold into a water elemental, and lightning into an air elemental.
+  creatures:
+  - 1 goblin boss
+  - 1 fire elemental (restrained)
+  - 1 water elemental (restrained)
+  - 1 air elemental (restrained)
+  - 1d4 goblins
+  tactics: |
+    The goblins here don't have any particular defenses, and will likely flee at the first sign of trouble for somewhere more defensible.
+    
